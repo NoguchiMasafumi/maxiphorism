@@ -6,45 +6,46 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-.vertical-text {
-	float:right;
-  writing-mode: vertical-rl; /* 縦書き、右から左 */
-  text-align: top right; /* 文字の水平方向の揃え */
-  font-family: '明朝', serif; /* フォントを明朝体に設定 */
-  /* 上部に寄せるための追加 */
-  height: 760px; /* 高さを固定 */
-  /*display: flex; /* フレックスボックスを使用 */
-  flex-direction: column; /* 縦方向に配置 */
-  justify-content: flex-start; /* 上端に揃える */
-overflow-x: auto; /* 横方向にスクロールバーを表示 */
-  width: 100%; /* 親要素の幅に合わせて広げる */
-}
+	.vertical-text {
+		float:right;
+	  writing-mode: vertical-rl; /* 縦書き、右から左 */
+	  text-align: top right; /* 文字の水平方向の揃え */
+	  font-family: '明朝', serif; /* フォントを明朝体に設定 */
+	  /* 上部に寄せるための追加 */
+	  height: 760px; /* 高さを固定 */
+	  /*display: flex; /* フレックスボックスを使用 */
+	  flex-direction: column; /* 縦方向に配置 */
+	  justify-content: flex-start; /* 上端に揃える */
+	overflow-x: auto; /* 横方向にスクロールバーを表示 */
+	  width: 100%; /* 親要素の幅に合わせて広げる */
+	}
+	.number {
+	  text-orientation: upright; /* 数字を横向きに */
+	}
+	.main_cont{
+		height:78%;
+		padding-bottom:30px;padding-left:15px;
+	}
+	td{
+		vertical-align: top;
+	}
+	//*************************************************************
+	@media (max-width: 768px) { /* スマートフォン向けスタイル */
+	  .vertical-text {
+	    font-size: 16px; /* 文字サイズを大きくする */
+	    height: auto; /* 高さを自動調整 */
+	  }
+	
+	  .main_cont {
+	    padding: 10px; /* パディングを調整 */
+	  }
+	
+	  td {
+	    font-size: 14px; /* 文字サイズを調整 */
+	  }
+	}
 
-
-@media (max-width: 768px) { /* スマートフォン向けスタイル */
-  .vertical-text {
-    font-size: 16px; /* 文字サイズを大きくする */
-    height: auto; /* 高さを自動調整 */
-  }
-
-  .main_cont {
-    padding: 10px; /* パディングを調整 */
-  }
-
-  td {
-    font-size: 14px; /* 文字サイズを調整 */
-  }
-}
-
-	  
-.number {
-  text-orientation: upright; /* 数字を横向きに */
-}
-.main_cont{height:78%;
-padding-bottom:30px;padding-left:15px;
-}
-
-td{vertical-align: top;}
+  
   </style>
 
 
