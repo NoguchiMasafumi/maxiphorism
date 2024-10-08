@@ -2,11 +2,11 @@ const tds = document.querySelectorAll('td.main_cont, td.nam');
 tds.forEach(td => {
   const textNode = td.childNodes[0];
 
-  // ƒeƒLƒXƒgƒm[ƒh‚ª‘¶İ‚µA‚©‚ÂƒeƒLƒXƒg‚ª‹ó‚Å‚È‚¢ê‡
+  // ãƒ†ã‚­ã‚¹ãƒˆãƒãƒ¼ãƒ‰ãŒå­˜åœ¨ã—ã€ã‹ã¤ãƒ†ã‚­ã‚¹ãƒˆãŒç©ºã§ãªã„å ´åˆ
   if (textNode && textNode.nodeType === Node.TEXT_NODE && textNode.nodeValue.trim()) {
     const words = textNode.nodeValue.split(' ');
     const newText = words.map(word => {
-      const number = word.replace(/[^a-zA-Z0-9]/g, '');
+      const number = word.replace(/[^a-zA-Z0-9â€]/g, '');
       return number ? `<span class="number">${word}</span>` : word;
     }).join(' ');
     td.innerHTML = newText;
@@ -21,13 +21,13 @@ tds.forEach(td => {
 
 
 
-// ‘S‚Ä‚Ìtr—v‘f‚ğæ“¾
+// å…¨ã¦ã®trè¦ç´ ã‚’å–å¾—
 const trs = document.querySelectorAll('table tr');
 
-// tr—v‘f‚ğ”z—ñ‚É•ÏŠ·
+// trè¦ç´ ã‚’é…åˆ—ã«å¤‰æ›
 const trsArray = Array.from(trs);
 
-// ”z—ñ‚ğƒVƒƒƒbƒtƒ‹‚·‚éŠÖ”
+// é…åˆ—ã‚’ã‚·ãƒ£ãƒƒãƒ•ãƒ«ã™ã‚‹é–¢æ•°
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -35,13 +35,13 @@ function shuffleArray(array) {
   }
 }
 
-// ”z—ñ‚ğƒVƒƒƒbƒtƒ‹
+// é…åˆ—ã‚’ã‚·ãƒ£ãƒƒãƒ•ãƒ«
 shuffleArray(trsArray);
 
-// ƒe[ƒuƒ‹—v‘f‚ğæ“¾
-const table = trs[0].parentNode; // Å‰‚Ìtr—v‘f‚Ìe—v‘f‚ªƒe[ƒuƒ‹—v‘f‚Æ‰¼’è
+// ãƒ†ãƒ¼ãƒ–ãƒ«è¦ç´ ã‚’å–å¾—
+const table = trs[0].parentNode; // æœ€åˆã®trè¦ç´ ã®è¦ªè¦ç´ ãŒãƒ†ãƒ¼ãƒ–ãƒ«è¦ç´ ã¨ä»®å®š
 
-// ƒVƒƒƒbƒtƒ‹‚³‚ê‚½‡‚Étr—v‘f‚ğƒe[ƒuƒ‹‚É’Ç‰Á
+// ã‚·ãƒ£ãƒƒãƒ•ãƒ«ã•ã‚ŒãŸé †ã«trè¦ç´ ã‚’ãƒ†ãƒ¼ãƒ–ãƒ«ã«è¿½åŠ 
 trsArray.forEach(tr => {
   table.appendChild(tr);
 });
