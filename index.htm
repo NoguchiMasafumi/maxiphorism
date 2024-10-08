@@ -20,6 +20,23 @@ overflow-x: auto; /* 横方向にスクロールバーを表示 */
   width: 100%; /* 親要素の幅に合わせて広げる */
 }
 
+
+@media (max-width: 768px) { /* スマートフォン向けスタイル */
+  .vertical-text {
+    font-size: 16px; /* 文字サイズを大きくする */
+    height: auto; /* 高さを自動調整 */
+  }
+
+  .main_cont {
+    padding: 10px; /* パディングを調整 */
+  }
+
+  td {
+    font-size: 14px; /* 文字サイズを調整 */
+  }
+}
+
+	  
 .number {
   text-orientation: upright; /* 数字を横向きに */
 }
