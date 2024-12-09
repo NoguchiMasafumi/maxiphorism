@@ -8768,20 +8768,26 @@ wktk</td></tr><tr><td>
 
   </div>
   <script>
-const tds = document.querySelectorAll('td.main_cont, td.nam');
-tds.forEach(td => {
-  const textNode = td.childNodes[0];
-
-  // テキストノードが存在し、かつテキストが空でない場合
-  if (textNode && textNode.nodeType === Node.TEXT_NODE && textNode.nodeValue.trim()) {
-    const words = textNode.nodeValue.split(' ');
-    const newText = words.map(word => {
-      const number = word.replace(/[^a-zA-Z0-9”]/g, '');
-      return number ? `<span class="number">${word}</span>` : word;
-    }).join(' ');
-    td.innerHTML = newText;
-  }
-});
+	const tds = document.querySelectorAll('td.main_cont, td.nam');
+	tds.forEach(td => {
+		const textNode = td.childNodes[0];
+		const text = textNode.nodeValue;
+		let newText = '';
+		for (let i = 0; i < text.length; i++) {
+		  const char = text[i];
+		  if (/[a-zA-Z0-9]/.test(char)) { // 半角英数字かどうか判定
+		    let word = char;
+		    while (i + 1 < text.length && /[a-zA-Z0-9]/.test(text[i + 1])) {
+		      word += text[i + 1];
+		      i++;
+		    }
+		    newText += `<span class="number">${word}</span>`;
+		  } else {
+		    newText += char;
+		  }
+		}
+		td.innerHTML = newText;
+	});
 
 
 
