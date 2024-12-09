@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>maxiphorism</title>
-	<link rel="stylesheet" href="style.css">
+
 
 	<style>
 		.vertical-text {
@@ -8767,9 +8767,8 @@ wktk<br />
 
 
   </div>
-  <script >
-const tds = document.querySelectorAll('div');
-tds.forEach(td => {
+  <script>
+  const tds = document.querySelectorAll('div');
   const textNode = td.childNodes[0];
 
   // テキストノードが存在し、かつテキストが空でない場合
@@ -8780,8 +8779,7 @@ tds.forEach(td => {
       return number ? `<span class="number">${word}</span>` : word;
     }).join(' ');
     td.innerHTML = newText;
-  }
-});
+  };
 
 
 	  
