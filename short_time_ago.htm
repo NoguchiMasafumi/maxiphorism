@@ -8767,6 +8767,24 @@ wktk<br />
 
 
   </div>
-  <script src="script.js"></script>
+  <script >
+const tds = document.querySelectorAll('div');
+tds.forEach(td => {
+  const textNode = td.childNodes[0];
+
+  // テキストノードが存在し、かつテキストが空でない場合
+  if (textNode && textNode.nodeType === Node.TEXT_NODE && textNode.nodeValue.trim()) {
+    const words = textNode.nodeValue.split(' ');
+    const newText = words.map(word => {
+      const number = word.replace(/[^a-zA-Z0-9”]/g, '');
+      return number ? `<span class="number">${word}</span>` : word;
+    }).join(' ');
+    td.innerHTML = newText;
+  }
+});
+
+
+	  
+  </script>
 </body>
 </html>
