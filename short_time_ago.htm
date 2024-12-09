@@ -32,7 +32,10 @@
 		td{
 			vertical-align: top;
 		}
-	
+		.black_no_underline{
+			text-decoration:none;
+			color:#000000;
+		}
 		/* ************************************************************ */
 		@media (max-width: 768px) { /* スマートフォン向けスタイル */
 			body{background-color:#ffffe9;}
@@ -8791,15 +8794,29 @@ wktk</td></tr><tr><td>
 
 
 // id属性が"myTable"のテーブルを取得
-const table = document.getElementById('myTable');
-
-const rows = table.querySelectorAll('tr');
-
+//const table = document.getElementById('myTable');
+//const rows = table.querySelectorAll('tr');
 // 各tr要素に一意なidを付与
-rows.forEach((row, index) => {
-    row.id = `row_${index}`; // 例: row_0, row_1, ...
-});
+//rows.forEach((row, index) => {
+//    row.id = `row_${index}`; // 例: row_0, row_1, ...
+//});
+// 全てのtd要素を取得
+//const tds = document.querySelectorAll('td');
 
+// 各td要素に対して処理
+tds.forEach((td, index) => {
+    // id属性を追加
+    td.setAttribute('id', `row_${index + 1}`);
+
+    // aタグを作成
+    const a = document.createElement('a');
+    a.classList.add('black_no_underline');
+    a.href = `#row_${index + 1}`;
+    a.textContent = td.textContent;
+
+    // 既存のテキストノードをaタグに置き換え
+    td.replaceChild(a, td.firstChild);
+});
 
 	  
   </script>
