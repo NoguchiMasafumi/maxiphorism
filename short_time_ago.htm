@@ -59,7 +59,7 @@
 </head>
 <body>
   <div class="vertical-text">
-<table><tr><td>少し昔話をしたくなった 【中学生編】</td></tr><tr><td>
+<table id="myTable"><tr><td>少し昔話をしたくなった 【中学生編】</td></tr><tr><td>
 </td></tr><tr><td>
 106(日) 12:06:24.98 ID:2bDrzic0</td></tr><tr><td>
 昨日昔を思い出す事が有ったから聞いて貰いたくなったんだよ。</td></tr><tr><td>
@@ -8789,6 +8789,16 @@ wktk</td></tr><tr><td>
 		td.innerHTML = newText;
 	});
 
+
+// id属性が"myTable"のテーブルを取得
+const table = document.getElementById('myTable');
+
+const rows = table.querySelectorAll('tr');
+
+// 各tr要素に一意なidを付与
+rows.forEach((row, index) => {
+    row.id = `row_${index}`; // 例: row_0, row_1, ...
+});
 
 
 	  
