@@ -58,8 +58,15 @@
 
 </head>
 <body>
+
+  <div>
+    <input type="text" id="search-box" placeholder="キーワードを入力してください" />
+    <button onclick="filterTable()">検索</button>
+  </div>
+
+
   <div class="vertical-text">
-<table>
+<table id="quotes-table">
 
   
 
@@ -437,5 +444,28 @@
 </table>    
   </div>
   <script src="script.js"></script>
+
+  <script>
+    function filterTable() {
+        const searchBox = document.getElementById('search-box');
+        const keywords = searchBox.value.toLowerCase().split(/[ 　]/).filter(keyword => keyword);
+        const table = document.getElementById('quotes-table');
+        const rows = table.getElementsByTagName('tr');
+
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
+            const rowText = row.innerText.toLowerCase();
+            const containsAllKeywords = keywords.every(keyword => rowText.includes(keyword));
+
+            if (containsAllKeywords) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    }
+  </script>
+
+
 </body>
 </html>
