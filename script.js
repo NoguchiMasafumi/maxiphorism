@@ -4,12 +4,22 @@ tds.forEach(td => {
 
   // テキストノードが存在し、かつテキストが空でない場合
   if (textNode && textNode.nodeType === Node.TEXT_NODE && textNode.nodeValue.trim()) {
-    const words = textNode.nodeValue.split(' ');
-    const newText = words.map(word => {
-      const number = word.replace(/[^a-zA-Z0-9”]/g, '');
-      return number ? `<span class="number">${word}</span>` : word;
-    }).join(' ');
-    td.innerHTML = newText;
+    const originalText = textNode.nodeValue;
+    const words = originalText.split(' ');
+
+    if (td.classList.contains('main_cont')) {
+      const newText = words.map(word => {
+        const number = word.replace(/[^a-zA-Z0-9”]/g, '');
+        return `<div class="cont">${word}</div>`;
+      }).join(' ');
+      td.innerHTML = newText;
+    } else if (td.classList.contains('nam')) {
+      const newText = words.map(word => {
+        const number = word.replace(/[^a-zA-Z0-9”]/g, '');
+        return `<div class="number">${word}</div>`;
+      }).join(' ');
+      td.innerHTML = newText;
+    }
   }
 });
 
